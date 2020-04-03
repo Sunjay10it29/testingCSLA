@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/king/coreHP/WebApplication1/WebApplication1.csproj": {}
+    "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/WebApplication1.csproj": {}
   },
   "projects": {
-    "/home/king/coreHP/WebApplication1/WebApplication1.csproj": {
+    "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/king/coreHP/WebApplication1/WebApplication1.csproj",
+        "projectUniqueName": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "/home/king/coreHP/WebApplication1/WebApplication1.csproj",
-        "packagesPath": "/home/king/.nuget/packages/",
-        "outputPath": "/home/king/coreHP/WebApplication1/obj/",
+        "projectPath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/WebApplication1.csproj",
+        "packagesPath": "/Users/sunny-dev/.nuget/packages/",
+        "outputPath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/king/.nuget/NuGet/NuGet.Config"
+          "/Users/sunny-dev/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -48,13 +48,17 @@
               "target": "Package",
               "version": "[5.1.0, )"
             },
+            "Microsoft.AspNetCore.Blazor.HttpClient": {
+              "target": "Package",
+              "version": "[3.2.0-preview2.20160.5, )"
+            },
             "Microsoft.AspNetCore.Blazor.Server": {
               "target": "Package",
               "version": "[3.0.0-preview9.19424.4, )"
             },
             "Microsoft.AspNetCore.Components.Authorization": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -85,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -8,19 +8,21 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using WebApplication1.Data;
 using Csla;
 using Csla.Configuration;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Components.Authorization;
-using Csla.Blazor.Client.Authentication;
-using System.Net.Http;
-using Microsoft.AspNetCore.Components.Server.Circuits;
-using System.Net.Security;
 using System.Net;
-using System.Security.Authentication;
+using System.Net.Http;
+using Csla.DataPortalClient;
+using System.Text;
+using Microsoft.AspNetCore.Blazor.Hosting;
+
 
 namespace WebApplication1
 {
@@ -41,58 +43,52 @@ namespace WebApplication1
             {
                 options.AllowSynchronousIO = true;
             });
-
-
-
             // If using IIS:
             services.Configure<IISServerOptions>(options =>
             {
                 options.AllowSynchronousIO = true;
             });
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddSingleton<CircuitHandler, TrackingCircuitHandler>();
+            services.AddSingleton<AuthenticationStateProvider, CustomAuthStateProvider>();
+            services.AddSingleton<CurrentUserService>();
             services.AddCsla();
-            services.AddTransient(typeof(IDataPortal<>), typeof(DataPortal<>));
-            services.AddTransient(typeof(Csla.Blazor.ViewModel<>), typeof(Csla.Blazor.ViewModel<>));
-        services.AddAuthorizationCore(config =>
-            {
-                config.AddPolicy("IsAuthenticated",
-                policy => policy.RequireAuthenticatedUser());
-                config.AddPolicy("IsAdmin", policy => policy.RequireRole("admin", "supervisor", "manager"));
-                config.AddPolicy("Thailand",
-                policy => policy.RequireClaim(ClaimTypes.Country, "es"));
-            });
+            if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
+{
+	// Setup HttpClient for server side in a client side compatible fashion
+            services.AddScoped<HttpClient>(s =>
+                {
+                    // Creating the URI helper needs to wait until the JS Runtime is initialized, so defer it.
+                            var uriHelper = s.GetRequiredService<NavigationManager>();
+                        return new HttpClient
+                    {
+                        BaseAddress = new Uri(uriHelper.BaseUri)
+                    };
+                });
+            }
+            // services.AddTransient(typeof(IDataPortal<>), typeof(DataPortal<>));
+            // services.AddTransient(typeof(Csla.Blazor.ViewModel<>), typeof(Csla.Blazor.ViewModel<>));
+            services.AddAuthorizationCore(config =>
+                {
+                    config.AddPolicy("IsAuthenticated",
+                    policy => policy.RequireAuthenticatedUser());
+                    config.AddPolicy("IsAdmin", policy => policy.RequireRole("admin", "supervisor", "manager"));
+                    config.AddPolicy("Thailand",
+                    policy => policy.RequireClaim(ClaimTypes.Country, "es"));
+                });
             // services.AddBaseAddressHttpClient();
-             services.AddScoped<HttpClient>(s =>
-            {
-               // Creating the URI helper needs to wait until the JS Runtime is initialized, so defer it.
+           
 
-               return new HttpClient {
-                   BaseAddress = new Uri("http://localhost:5000/api/DataPortal/")
-               };
-            });
+            // Pass the handler to httpclient(from you are calling api)
+            // HttpClient client = new HttpClient(clientHandler);
+            ServicePointManager.ServerCertificateValidationCallback += 
+                (sender, cert, chain, sslPolicyErrors) => true;
+           
 
-            HttpClientHandler clientHandler = new HttpClientHandler {
-                  AllowAutoRedirect = false,
-                    ServerCertificateCustomValidationCallback = (message, certificate2, arg3, arg4) => true,
-                    SslProtocols = SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12
-            };
-            // services.AddHttpClient()
-            //     .ConfigurePrimaryHttpMessageHandler(sp => new HttpClientHandler
-            //     {
-            //         AllowAutoRedirect = false,
-            //         ServerCertificateCustomValidationCallback = (message, certificate2, arg3, arg4) => true,
-            //         SslProtocols = SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12
-            //     });
-            // clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-             HttpClient client = new HttpClient(clientHandler);
-            services.AddSingleton<AuthenticationStateProvider, CslaAuthenticationStateProvider>();
-            services.AddSingleton<CslaUserService>();
-             
-                services.AddHttpClient("extendedhandlerlifetime")
-        .SetHandlerLifetime(TimeSpan.FromMinutes(5));
+            // services.AddHttpClient("extendedhandlerlifetime")
+            // .SetHandlerLifetime(TimeSpan.FromMinutes(5));
             // services.AddHttpClient()
             //     .ConfigurePrimaryHttpMessageHandler(sp => new HttpClientHandler
             //     {
@@ -106,11 +102,8 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // ServicePointManager.ServerCertificateValidationCallback +=
-            // (sender, certificate, chain, errors) => {
-            //     return true;
-            // };
          
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -131,14 +124,40 @@ namespace WebApplication1
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
-               
+
             });
-            
-      CslaConfiguration.Configure().
-        ContextManager(typeof(Csla.Blazor.ApplicationContextManager)).
-        DataPortal().
-          DefaultProxy((typeof(Csla.DataPortalClient.HttpProxy)), "http://localhost:5000/api/DataPortal/");
-    
+            // app.UseCsla(c =>
+            // {
+            //     c.DataPortal()
+            //     .DefaultProxy(typeof(CustomDataPortalProxyFactory), "http://localhost:5000/api/dataportaltext/");
+            // });
+
         }
+
+    }
+}
+public class CustomDataPortalProxyFactory : IDataPortalProxyFactory
+{
+    private static System.Type _proxyType;
+
+
+    public Csla.DataPortalClient.IDataPortalProxy Create(System.Type objectType)
+    {
+
+        if (_proxyType == null)
+        {
+            string proxyTypeName = Csla.ApplicationContext.DataPortalProxy;
+            if (proxyTypeName == "Local")
+                _proxyType = typeof(LocalProxy);
+            else
+                _proxyType = System.Type.GetType(proxyTypeName, true, true);
+        }
+
+        return (Csla.DataPortalClient.IDataPortalProxy)Csla.Reflection.MethodCaller.CreateInstance(_proxyType);
+    }
+
+    public void ResetProxyType()
+    {
+        throw new System.NotImplementedException();
     }
 }
