@@ -123,6 +123,7 @@ namespace WebApplication1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapFallbackToPage("/_Host");
 
             });

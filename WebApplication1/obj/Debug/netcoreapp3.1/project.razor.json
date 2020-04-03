@@ -1,5 +1,5 @@
 {
-  "FilePath": "/home/king/coreHP/WebApplication1/WebApplication1.csproj",
+  "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/WebApplication1.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -258,55 +258,6 @@
       },
       {
         "Kind": "Components.Component",
-        "Name": "WebApplication1.Pages.Logout",
-        "AssemblyName": "WebApplication1",
-        "Documentation": null,
-        "TagOutputHint": null,
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Logout",
-            "ParentTag": null,
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "WebApplication1.Pages.Logout"
-        }
-      },
-      {
-        "Kind": "Components.Component",
-        "Name": "WebApplication1.Pages.Logout",
-        "AssemblyName": "WebApplication1",
-        "Documentation": null,
-        "TagOutputHint": null,
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "WebApplication1.Pages.Logout",
-            "ParentTag": null,
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "WebApplication1.Pages.Logout",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "Kind": "Components.Component",
         "Name": "WebApplication1.Pages.Login",
         "AssemblyName": "WebApplication1",
         "Documentation": null,
@@ -351,6 +302,55 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "WebApplication1.Pages.Login",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "WebApplication1.Pages.Logout",
+        "AssemblyName": "WebApplication1",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Logout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "WebApplication1.Pages.Logout"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "WebApplication1.Pages.Logout",
+        "AssemblyName": "WebApplication1",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "WebApplication1.Pages.Logout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "WebApplication1.Pages.Logout",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -430,138 +430,6 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "WebApplication1.Shared.LabelText",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "Kind": "Components.Component",
-        "Name": "WebApplication1.Shared.MainLayout",
-        "AssemblyName": "WebApplication1",
-        "Documentation": null,
-        "TagOutputHint": null,
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "MainLayout",
-            "ParentTag": null,
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Body",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "IsEnum": false,
-            "IndexerNamePrefix": null,
-            "IndexerTypeName": null,
-            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
-            "Diagnostics": [],
-            "Metadata": {
-              "Common.PropertyName": "Body",
-              "Components.ChildContent": "True"
-            },
-            "BoundAttributeParameters": []
-          }
-        ],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "WebApplication1.Shared.MainLayout"
-        }
-      },
-      {
-        "Kind": "Components.Component",
-        "Name": "WebApplication1.Shared.MainLayout",
-        "AssemblyName": "WebApplication1",
-        "Documentation": null,
-        "TagOutputHint": null,
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "WebApplication1.Shared.MainLayout",
-            "ParentTag": null,
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "Body",
-            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
-            "IsEnum": false,
-            "IndexerNamePrefix": null,
-            "IndexerTypeName": null,
-            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
-            "Diagnostics": [],
-            "Metadata": {
-              "Common.PropertyName": "Body",
-              "Components.ChildContent": "True"
-            },
-            "BoundAttributeParameters": []
-          }
-        ],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "WebApplication1.Shared.MainLayout",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "Kind": "Components.ChildContent",
-        "Name": "WebApplication1.Shared.MainLayout.Body",
-        "AssemblyName": "WebApplication1",
-        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
-        "TagOutputHint": null,
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Body",
-            "ParentTag": "MainLayout",
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "WebApplication1.Shared.MainLayout.Body",
-          "Components.IsSpecialKind": "Components.ChildContent"
-        }
-      },
-      {
-        "Kind": "Components.ChildContent",
-        "Name": "WebApplication1.Shared.MainLayout.Body",
-        "AssemblyName": "WebApplication1",
-        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
-        "TagOutputHint": null,
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Body",
-            "ParentTag": "WebApplication1.Shared.MainLayout",
-            "TagStructure": 0,
-            "Attributes": [],
-            "Diagnostics": []
-          }
-        ],
-        "BoundAttributes": [],
-        "AllowedChildTags": [],
-        "Diagnostics": [],
-        "Metadata": {
-          "Runtime.Name": "Components.None",
-          "Common.TypeName": "WebApplication1.Shared.MainLayout.Body",
-          "Components.IsSpecialKind": "Components.ChildContent",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -904,6 +772,138 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "WebApplication1.Shared.TextInputRow",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "WebApplication1.Shared.MainLayout",
+        "AssemblyName": "WebApplication1",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "MainLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "WebApplication1.Shared.MainLayout"
+        }
+      },
+      {
+        "Kind": "Components.Component",
+        "Name": "WebApplication1.Shared.MainLayout",
+        "AssemblyName": "WebApplication1",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "WebApplication1.Shared.MainLayout",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "Body",
+            "TypeName": "Microsoft.AspNetCore.Components.RenderFragment",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "Body",
+              "Components.ChildContent": "True"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "WebApplication1.Shared.MainLayout",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "WebApplication1.Shared.MainLayout.Body",
+        "AssemblyName": "WebApplication1",
+        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "MainLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "WebApplication1.Shared.MainLayout.Body",
+          "Components.IsSpecialKind": "Components.ChildContent"
+        }
+      },
+      {
+        "Kind": "Components.ChildContent",
+        "Name": "WebApplication1.Shared.MainLayout.Body",
+        "AssemblyName": "WebApplication1",
+        "Documentation": "\n            <summary>\n            Gets the content to be rendered inside the layout.\n            </summary>\n        ",
+        "TagOutputHint": null,
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Body",
+            "ParentTag": "WebApplication1.Shared.MainLayout",
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "Components.None",
+          "Common.TypeName": "WebApplication1.Shared.MainLayout.Body",
+          "Components.IsSpecialKind": "Components.ChildContent",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -22306,78 +22306,78 @@
   "RootNamespace": "WebApplication1",
   "Documents": [
     {
-      "FilePath": "/home/king/coreHP/WebApplication1/Pages/Error.razor",
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Pages/Error.razor",
       "TargetPath": "Pages\\Error.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "/home/king/coreHP/WebApplication1/Shared/TextInput.razor",
-      "TargetPath": "Shared\\TextInput.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/Pages/Index.razor",
-      "TargetPath": "Pages\\Index.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/Shared/MainLayout.razor",
-      "TargetPath": "Shared\\MainLayout.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/Pages/FetchData.razor",
-      "TargetPath": "Pages\\FetchData.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/Shared/TextInputRow.razor",
-      "TargetPath": "Shared\\TextInputRow.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/_Imports.razor",
-      "TargetPath": "_Imports.razor",
-      "FileKind": "componentImport"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/Pages/_Host.cshtml",
-      "TargetPath": "Pages\\_Host.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/Pages/Login.razor",
-      "TargetPath": "Pages\\Login.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/Shared/LabelText.razor",
-      "TargetPath": "Shared\\LabelText.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "/home/king/coreHP/WebApplication1/Pages/Logout.razor",
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Pages/Logout.razor",
       "TargetPath": "Pages\\Logout.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "/home/king/coreHP/WebApplication1/App.razor",
-      "TargetPath": "App.razor",
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Shared/LabelText.razor",
+      "TargetPath": "Shared\\LabelText.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "/home/king/coreHP/WebApplication1/Shared/SurveyPrompt.razor",
-      "TargetPath": "Shared\\SurveyPrompt.razor",
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Shared/TextInputRow.razor",
+      "TargetPath": "Shared\\TextInputRow.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "/home/king/coreHP/WebApplication1/Shared/NavMenu.razor",
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Pages/Counter.razor",
+      "TargetPath": "Pages\\Counter.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/_Imports.razor",
+      "TargetPath": "_Imports.razor",
+      "FileKind": "componentImport"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Shared/MainLayout.razor",
+      "TargetPath": "Shared\\MainLayout.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Pages/Login.razor",
+      "TargetPath": "Pages\\Login.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Pages/_Host.cshtml",
+      "TargetPath": "Pages\\_Host.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Shared/NavMenu.razor",
       "TargetPath": "Shared\\NavMenu.razor",
       "FileKind": "component"
     },
     {
-      "FilePath": "/home/king/coreHP/WebApplication1/Pages/Counter.razor",
-      "TargetPath": "Pages\\Counter.razor",
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Shared/SurveyPrompt.razor",
+      "TargetPath": "Shared\\SurveyPrompt.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Shared/TextInput.razor",
+      "TargetPath": "Shared\\TextInput.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Pages/Index.razor",
+      "TargetPath": "Pages\\Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/Pages/FetchData.razor",
+      "TargetPath": "Pages\\FetchData.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/sunny-dev/Documents/testingCSLA/WebApplication1/App.razor",
+      "TargetPath": "App.razor",
       "FileKind": "component"
     }
   ],
