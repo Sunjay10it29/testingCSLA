@@ -1,0 +1,85 @@
+﻿@page "/login"
+@using WebApplication1.Data
+@using WebApplication1.Shared
+@using System.Security.Claims
+@using Csla
+@using Csla.Blazor
+@using Csla.Blazor.Client.Authentication
+@inject ViewModel<UserCredentials> vm
+@inject CslaUserService userService
+@inject NavigationManager nav
+@inject HttpClient Http
+
+<h3>Login</h3>
+
+<p class="text-danger">@vm.ViewModelErrorText</p>
+<p class="text-danger">@ErrorText</p>
+@if (vm.Model == null)
+{
+  <div>Loading...</div>
+}
+else
+{
+  <p style="background-color:red;color:white">@vm.ViewModelErrorText</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Hello</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <TextInputRow Property="vm.GetPropertyInfo(nameof(vm.Model.Username))" />
+      <TextInputRow Property="vm.GetPropertyInfo(nameof(vm.Model.Password))" InputType="password" />
+      <tr>
+        <td>IsNew</td>
+        <td>@vm.Model.IsNew</td>
+      </tr>
+      <tr>
+        <td>IsSavable</td>
+        <td>@vm.Model.IsSavable</td>
+      </tr>
+    </tbody>
+  </table>
+  <button @onclick="VerifyCredentials" disabled="@(!vm.Model.IsSavable)">Save</button>
+
+}
+
+@code {
+  public string ErrorText { get; set; }
+  protected override void OnInitialized()
+  {
+    vm.ModelPropertyChanged += async (s, e) => await InvokeAsync(() => StateHasChanged());
+
+  }
+
+  protected override async Task OnParametersSetAsync()
+  {
+    await vm.RefreshAsync();
+  }
+
+  private async void VerifyCredentials()
+  {
+    var identity = await DataPortal.FetchAsync<CustomIdentity>(vm.Model);
+
+
+     if (identity.IsAuthenticated)
+    {
+      var baseidentity = new ClaimsIdentity(identity.AuthenticationType);
+       baseidentity.AddClaim(new Claim(ClaimTypes.Name, identity.Name));
+    if (identity.Roles != null)
+      foreach (var item in identity.Roles)
+
+      baseidentity.AddClaim(new Claim(ClaimTypes.Role, identity.Name));
+      var principal = new System.Security.Claims.ClaimsPrincipal(baseidentity);
+      userService.CurrentUser = principal;
+      nav.NavigateTo("/");
+    }
+    else
+    {
+      ErrorText = "Invalid credentials";
+      StateHasChanged();
+    }
+  }
+
+}
